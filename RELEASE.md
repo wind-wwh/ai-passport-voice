@@ -3,6 +3,8 @@
 > **本文件是本次发布的权威说明**，面向两类读者：① 人类（下载页第一眼）；② 用户电脑上的 AI 助手（先读它，再决定下载什么、读哪份文档）。
 > 本文件**不在** zip 内（因为它要写 zip 自身的 SHA-256，写进去就会自指循环）。
 > 版本：**v1.0.0** ｜ tag：**`v1.0.0`** ｜ 发布日期：2026-10-17
+>
+> ⚠️ **以本文件（`main` 分支）为准**：标签 `v1.0.0` 下的同名文件是首次上传的早期版本（哈希写成旧的 `053487AA…`），不要用它校验。
 
 ---
 
@@ -10,7 +12,7 @@
 
 | 资产 | 大小 | SHA-256 | 用途 |
 |---|---|---|---|
-| `ai-passport-voice-release-v1.0.0.zip` | 493,847 字节 | `053487AA22E356327F0CA8E622DBC29A1EB34E20B0070F324E4A8D9379AB98F6` | **唯一安装包**：固件镜像 + 电脑端脚本 + 全部文档 |
+| `ai-passport-voice-release-v1.0.0.zip` | 493,405 字节 | `ddd170198a9c0ceca42ad573965883549d3a1076ee59059b3a061e81751dee76` | **唯一安装包**：固件镜像 + 电脑端脚本 + 全部文档 |
 
 包内还有一份 `SHA256SUMS.txt`（45 条），用于逐个校验**解压后**的文件。注意：
 
@@ -182,17 +184,21 @@ Get-FileHash .\固件\ai-passport-voice-full.bin -Algorithm SHA256
 
 ```text
 帮我在 Windows 上安装「AI Passport 语音输入 v1.0.0」。设备已用 USB 数据线连好并开机。
-来源只认这个仓库的 v1.0.0 正式版：https://github.com/<OWNER>/<REPO>
+安装包只认这个仓库的 v1.0.0 正式版：https://github.com/wind-wwh/ai-passport-voice
 
-第一步，先读这份发布清单（资产名、大小、SHA-256、每个文件的用途都在里面）：
-  https://raw.githubusercontent.com/<OWNER>/<REPO>/v1.0.0/RELEASE.md
-如果 raw 地址取不到，改用 GitHub API：
-  https://api.github.com/repos/<OWNER>/<REPO>/releases/tags/v1.0.0
-在 assets 里找 ai-passport-voice-release-v1.0.0.zip，用它的 browser_download_url 下载。
+第一步，先读这两处信息（不要凭记忆，也不要跑去装别的同名仓库）：
+  1) 发布清单（每个文件的用途、安装入口、人类专属步骤）：
+     https://raw.githubusercontent.com/wind-wwh/ai-passport-voice/main/RELEASE.md
+  2) 发布元数据（不可变，含附件 sha256 digest 与下载地址）：
+     https://api.github.com/repos/wind-wwh/ai-passport-voice/releases/tags/v1.0.0
+     在 assets 里找 ai-passport-voice-release-v1.0.0.zip，用 browser_download_url 下载。
+  若这两处写的大小/哈希与我下面给的不一致，立刻停下来告诉我，不要自己判断哪个对。
+  注意：不要下载自动生成的 Source code (zip)/(tar.gz) —— 那里面没有固件和脚本。
 
 第二步，下载并校验：
   - zip 的 SHA-256 必须等于：
-    053487AA22E356327F0CA8E622DBC29A1EB34E20B0070F324E4A8D9379AB98F6
+    ddd170198a9c0ceca42ad573965883549d3a1076ee59059b3a061e81751dee76
+  - 大小应为 493,405 字节。
   - 对不上就立刻停止：不要解压、不要运行其中任何文件、不要换地址重试。
   - 校验通过后解压到 D:\AIPassport。
 
